@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ShopSphere Admin | Dashboard</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+      <span class="brand-mark">S</span>
+      <span>ShopSphere</span>
+    </div>
+
+    <nav>
+
+      <a class="nav-link active" href="index.html">
+        ▦ <span>Dashboard</span>
+      </a>
+
+      <a class="nav-link" href="products.html">
+        ▣ <span>Products</span>
+      </a>
+
+      <a class="nav-link" href="orders.html">
+        ◫ <span>Orders</span>
+      </a>
+
+      <a class="nav-link" href="analytics.html">
+        ◒ <span>Analytics</span>
+      </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+      <a class="nav-link" href="#settings">
+        ⚙ <span>Settings</span>
+      </a>
+
+      <button class="nav-link logout" type="button">
+        ↪ <span>Logout</span>
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+
+      <button class="icon-btn mobile-menu" id="menuBtn">
+        ☰
+      </button>
+
+      <div>
+        <p class="eyebrow">STORE MANAGEMENT</p>
+        <h1>Dashboard</h1>
+      </div>
+
+      <div class="top-actions">
+
+        <button class="icon-btn" id="themeBtn">
+          ☀️
+        </button>
+
+        <div class="avatar">
+          AD
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <section class="page-content">
+
+      <div class="welcome-row">
+
+        <div>
+          <h2>Good morning, Admin 👋</h2>
+
+          <p class="muted">
+            Here's what's happening with your store today.
+          </p>
+        </div>
+
+        <a class="btn primary" href="products.html">
+          + Add Product
+        </a>
+
+      </div>
+
+
+      <!-- STAT CARDS -->
+
+      <section class="stats-grid">
+
+        <article
+          class="stat-card draggable-widget"
+          draggable="true"
+          data-widget="revenue"
+        >
+
+          <div class="stat-icon purple">
+            ₹
+          </div>
+
+          <div>
+
+            <p>Revenue</p>
+
+            <h3 id="statRevenue">
+              ₹0
+            </h3>
+
+            <span class="positive">
+              ↑ 12.8%
+            </span>
+
+            <small>
+              vs last period
+            </small>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="stat-card draggable-widget"
+          draggable="true"
+          data-widget="orders"
+        >
+
+          <div class="stat-icon blue">
+            ↗
+          </div>
+
+          <div>
+
+            <p>Orders</p>
+
+            <h3 id="statOrders">
+              0
+            </h3>
+
+            <span class="positive">
+              ↑ 8.4%
+            </span>
+
+            <small>
+              vs last period
+            </small>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="stat-card draggable-widget"
+          draggable="true"
+          data-widget="customers"
+        >
+
+          <div class="stat-icon green">
+            ◉
+          </div>
+
+          <div>
+
+            <p>Customers</p>
+
+            <h3 id="statCustomers">
+              0
+            </h3>
+
+            <span class="positive">
+              ↑ 5.2%
+            </span>
+
+            <small>
+              vs last period
+            </small>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="stat-card draggable-widget"
+          draggable="true"
+          data-widget="products"
+        >
+
+          <div class="stat-icon orange">
+            ▣
+          </div>
+
+          <div>
+
+            <p>Products</p>
+
+            <h3 id="statProducts">
+              0
+            </h3>
+
+            <span class="warning">
+              Low stock alerts
+            </span>
+
+            <small id="lowStockCount">
+              0 items
+            </small>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- DASHBOARD GRID -->
+
+      <section class="dashboard-grid">
+
+
+        <!-- REVENUE -->
+
+        <article
+          class="panel chart-panel draggable-widget"
+          draggable="true"
+          data-widget="sales"
+        >
+
+          <div class="panel-head">
+
+            <div>
+
+              <h3>
+                Revenue Overview
+              </h3>
+
+              <p class="muted">
+                Sales performance over time
+              </p>
+
+            </div>
+
+            <select
+              id="dashboardRange"
+              class="select"
+            >
+
+              <option value="7">
+                Last 7 days
+              </option>
+
+              <option value="30" selected>
+                Last 30 days
+              </option>
+
+              <option value="90">
+                Last 90 days
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="chart-wrap">
+
+            <canvas id="revenueChart"></canvas>
+
+          </div>
+
+        </article>
+
+
+        <!-- INVENTORY -->
+
+        <article
+          class="panel draggable-widget"
+          draggable="true"
+          data-widget="inventory"
+        >
+
+          <div class="panel-head">
+
+            <div>
+
+              <h3>
+                Inventory Alerts
+              </h3>
+
+              <p class="muted">
+                Products that need attention
+              </p>
+
+            </div>
+
+            <a href="products.html">
+              View all
+            </a>
+
+          </div>
+
+          <div
+            id="inventoryAlerts"
+            class="alert-list"
+          ></div>
+
+        </article>
+
+
+        <!-- ORDERS -->
+
+        <article
+          class="panel draggable-widget"
+          draggable="true"
+          data-widget="orders"
+        >
+
+          <div class="panel-head">
+
+            <div>
+
+              <h3>
+                Recent Orders
+              </h3>
+
+              <p class="muted">
+                Latest store activity
+              </p>
+
+            </div>
+
+            <a href="orders.html">
+              View all
+            </a>
+
+          </div>
+
+          <div class="table-scroll">
+
+            <table>
+
+              <thead>
+
+                <tr>
+                  <th>Order</th>
+                  <th>Customer</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                </tr>
+
+              </thead>
+
+              <tbody id="recentOrders"></tbody>
+
+            </table>
+
+          </div>
+
+        </article>
+
+
+        <!-- CATEGORY -->
+
+        <article
+          class="panel draggable-widget"
+          draggable="true"
+          data-widget="category"
+        >
+
+          <div class="panel-head">
+
+            <div>
+
+              <h3>
+                Sales by Category
+              </h3>
+
+              <p class="muted">
+                Current period
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="chart-wrap small">
+
+            <canvas id="categoryChart"></canvas>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <div class="tip">
+
+        <strong>Tip:</strong>
+
+        Drag dashboard cards to rearrange your workspace.
+        Your layout is saved automatically.
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

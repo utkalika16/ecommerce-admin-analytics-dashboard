@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+ShopSphere Admin | Orders
+</title>
+
+<link
+  rel="stylesheet"
+  href="css/style.css"
+>
+
+</head>
+
+
+<body>
+
+
+<div class="app-shell">
+
+
+<aside
+  class="sidebar"
+  id="sidebar"
+>
+
+
+<div class="brand">
+
+<span class="brand-mark">
+S
+</span>
+
+<span>
+ShopSphere
+</span>
+
+</div>
+
+
+<nav>
+
+<a
+class="nav-link"
+href="index.html"
+>
+▦ <span>Dashboard</span>
+</a>
+
+
+<a
+class="nav-link"
+href="products.html"
+>
+▣ <span>Products</span>
+</a>
+
+
+<a
+class="nav-link active"
+href="orders.html"
+>
+◫ <span>Orders</span>
+</a>
+
+
+<a
+class="nav-link"
+href="analytics.html"
+>
+◒ <span>Analytics</span>
+</a>
+
+</nav>
+
+
+<div class="sidebar-bottom">
+
+<a
+class="nav-link"
+href="#settings"
+>
+⚙ <span>Settings</span>
+</a>
+
+</div>
+
+
+</aside>
+
+
+
+<main class="main">
+
+
+<header class="topbar">
+
+
+<button
+class="icon-btn mobile-menu"
+id="menuBtn"
+>
+☰
+</button>
+
+
+<div>
+
+<p class="eyebrow">
+SALES
+</p>
+
+<h1>
+Orders
+</h1>
+
+</div>
+
+
+<div class="top-actions">
+
+<button
+class="icon-btn"
+id="themeBtn"
+>
+☀️
+</button>
+
+<div class="avatar">
+AD
+</div>
+
+</div>
+
+
+</header>
+
+
+
+<section class="page-content">
+
+
+<div class="page-title-row">
+
+<div>
+
+<h2>
+Order Management
+</h2>
+
+<p class="muted">
+Track, filter and update customer orders.
+</p>
+
+</div>
+
+
+<button
+class="btn secondary"
+id="exportOrders"
+>
+Export CSV
+</button>
+
+</div>
+
+
+
+<div class="order-summary">
+
+
+<div>
+
+<span>
+Total
+</span>
+
+<strong id="orderCount">
+0
+</strong>
+
+</div>
+
+
+<div>
+
+<span>
+Pending
+</span>
+
+<strong id="pendingCount">
+0
+</strong>
+
+</div>
+
+
+<div>
+
+<span>
+Processing
+</span>
+
+<strong id="processingCount">
+0
+</strong>
+
+</div>
+
+
+<div>
+
+<span>
+Delivered
+</span>
+
+<strong id="deliveredCount">
+0
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+<section class="panel">
+
+
+<div class="toolbar">
+
+
+<div class="search-box">
+
+<span>
+⌕
+</span>
+
+<input
+id="orderSearch"
+placeholder="Search order or customer..."
+>
+
+</div>
+
+
+<select
+id="orderStatusFilter"
+class="select"
+>
+
+<option value="all">
+All statuses
+</option>
+
+<option>
+Pending
+</option>
+
+<option>
+Processing
+</option>
+
+<option>
+Shipped
+</option>
+
+<option>
+Delivered
+</option>
+
+<option>
+Cancelled
+</option>
+
+</select>
+
+
+<select
+id="orderSort"
+class="select"
+>
+
+<option value="newest">
+Newest first
+</option>
+
+<option value="oldest">
+Oldest first
+</option>
+
+<option value="high">
+Highest value
+</option>
+
+<option value="low">
+Lowest value
+</option>
+
+</select>
+
+
+</div>
+
+
+
+<div class="table-scroll">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+Order ID
+</th>
+
+<th>
+Customer
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Items
+</th>
+
+<th>
+Total
+</th>
+
+<th>
+Status
+</th>
+
+<th>
+Update
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody
+id="ordersTable"
+></tbody>
+
+
+</table>
+
+
+</div>
+
+
+</section>
+
+
+</section>
+
+
+</main>
+
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+<script src="js/orders.js"></script>
+
+
+</body>
+
+</html>
